@@ -27,12 +27,14 @@ public class CicloVida extends HttpServlet {
     
     @Override
     public void init(ServletConfig config){
+        System.out.println("init()");
         
     }
     
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("service()");
             PrintWriter out = response.getWriter();
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -41,6 +43,7 @@ public class CicloVida extends HttpServlet {
             out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/estilos.css\" />");
             out.println("</head>");
             out.println("<body>");
+            /*
             out.println("<h1>Par&aacute;metros iniciales</h1>");
             java.util.Enumeration<String> parametros = request.getParameterNames();
             while(parametros.hasMoreElements()){
@@ -48,14 +51,20 @@ public class CicloVida extends HttpServlet {
                 String valor = request.getParameter(elemento);
                 out.print("<p>"+elemento + "-" + valor+"</p>");
             }
+            out.println("<h1>Cabeceras iniciales</h1>");
+            java.util.Enumeration<String> cabecera = request.getHeaderNames();
+            while(cabecera.hasMoreElements()){
+                String elemento = cabecera.nextElement();
+                String valor = request.getHeader(elemento);
+                out.print("<p>"+cabecera + "-" + valor+"</p>");
+            }
             out.println("<br/>");
             out.println("<br/>");
-            out.println("<a href=\"index.html\">Volver a Index</a>");
+            */
+            out.println("<a href=\"index.html\">Volver a Menu</a>");
             out.println("</body>");
             out.println("</html>");
         }
-    
-    
     
     @Override
     public void destroy(){
