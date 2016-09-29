@@ -7,6 +7,9 @@ package es.albarregas.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Map;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,19 +27,41 @@ public class CicloVida extends HttpServlet {
     
     @Override
     public void init(ServletConfig config){
-        System.out.println("init()");
-}
+        
+    }
     
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("service()");
-    }
+            PrintWriter out = response.getWriter();
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Par&aacute;metros</title>"); 
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/estilos.css\" />");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Par&aacute;metros iniciales</h1>");
+            java.util.Enumeration<String> parametros = request.getParameterNames();
+            while(parametros.hasMoreElements()){
+                String elemento = parametros.nextElement();
+                String valor = request.getParameter(elemento);
+                out.print("<p>"+elemento + "-" + valor+"</p>");
+            }
+            out.println("<br/>");
+            out.println("<br/>");
+            out.println("<a href=\"index.html\">Volver a Index</a>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+    
+    
     
     @Override
     public void destroy(){
         System.out.println("destroy()");
     }
 }
+
 
     
