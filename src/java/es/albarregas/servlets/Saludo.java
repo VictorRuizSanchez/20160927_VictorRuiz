@@ -41,7 +41,9 @@ public class Saludo extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Hola Mundo Servlet</h1>");
             out.println("</body>");
+            out.println("<volver>");
             out.println("<a href=\"index.html\">Volver a Menu</a>");
+            out.println("</volver>");
             out.println("</html>");
         }
     }

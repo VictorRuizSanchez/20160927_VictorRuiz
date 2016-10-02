@@ -39,10 +39,11 @@ public class CicloVida extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Par&aacute;metros</title>"); 
+            out.println("<title>Ciclo de vida</title>"); 
             out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/estilos.css\" />");
             out.println("</head>");
             out.println("<body>");
+            
             /*
             out.println("<h1>Par&aacute;metros iniciales</h1>");
             java.util.Enumeration<String> parametros = request.getParameterNames();
@@ -61,7 +62,11 @@ public class CicloVida extends HttpServlet {
             out.println("<br/>");
             out.println("<br/>");
             */
+            out.println("<br/>");
+            out.println("<br/>");
+            out.println("<volver>");
             out.println("<a href=\"index.html\">Volver a Menu</a>");
+            out.println("</volver>");
             out.println("</body>");
             out.println("</html>");
         }

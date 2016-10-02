@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Zack
  */
-@WebServlet(name = "Cabeceras", urlPatterns = {"/Cabeceras"})
-public class Cabeceras extends HttpServlet {
+@WebServlet(name = "Numeracion", urlPatterns = {"/Numeracion"})
+public class Numeracion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,26 +37,24 @@ public class Cabeceras extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Cabeceras</title>");
+            out.println("<title>Servlet Numeracion</title>");  
             out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/estilos.css\" />");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Cabeceras iniciales</h1>");
-            java.util.Enumeration<String> cabecera = request.getHeaderNames();
-            out.println("<cabeceras>");
-            while(cabecera.hasMoreElements()){
-                String elemento = cabecera.nextElement();
-                String valor = request.getHeader(elemento);
-                out.print(cabecera + "&nbsp;&nbsp;&nbsp;&nbsp;" + valor+"<br/>");
-                out.println("<br/>");
+            
+            out.println("<h1>Par&aacute;metros iniciales</h1>");
+            java.util.Enumeration<String> parametros = request.getParameterNames();
+            while(parametros.hasMoreElements()){
+                String elemento = parametros.nextElement();
+                String valor = request.getParameter(elemento);
+                out.print("<p>"+elemento + "-" + valor+"</p>");
             }
-            out.println("</cabeceras>");
             out.println("<br/>");
             out.println("<br/>");
-            out.println("</body>");
             out.println("<volver>");
             out.println("<a href=\"index.html\">Volver a Menu</a>");
             out.println("</volver>");
+            out.println("</body>");
             out.println("</html>");
         }
     }
