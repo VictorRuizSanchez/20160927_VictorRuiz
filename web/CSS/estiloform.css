@@ -1,0 +1,63 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03-oct-2016, 17:04:29
+    Author     : Zack
+*/
+body {
+    background-color: green;
+}
+fieldset {
+    background-color: greenyellow;
+    border: 2px solid black;
+    width: 50%;
+}
+
+legend {
+    font: bold 15px verdana;
+    background-color: greenyellow;
+    border-top: 2px solid black;
+}
+
+.boton {
+        font:bold 10px Verdana,Helvetica white;
+        background:#66ff35;
+        border:1px solid black;
+        width:80px;
+        height:19px;
+}
+
+volver {
+    background-color: #999999;
+    border-radius: 20px /10px;
+    width: 40%;
+    padding: 10px;
+    margin-top:10px;
+    border: 2px solid black;
+}
+
+volver:hover {
+    background-color: grey;
+    border-radius: 20px /10px;
+    width: 40%;
+    padding: 10px;
+    margin-top:10px;
+    border: 2px solid black;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 1px 2px #999;
+}
+
+p {
+    font: 13px verdana black;
+}
+
+a {
+    text-decoration:none;
+    color: white;
+}
