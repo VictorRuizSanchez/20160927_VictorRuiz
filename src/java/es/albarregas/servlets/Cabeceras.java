@@ -47,7 +47,7 @@ public class Cabeceras extends HttpServlet {
             while(cabecera.hasMoreElements()){
                 String elemento = cabecera.nextElement();
                 String valor = request.getHeader(elemento);
-                out.print(cabecera + "&nbsp;&nbsp;&nbsp;&nbsp;" + valor+"<br/>");
+                out.print(elemento + ": &nbsp;<valor>" + valor+"</valor><br/>");
                 out.println("<br/>");
             }
             out.println("</cabeceras>");

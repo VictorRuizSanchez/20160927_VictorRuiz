@@ -47,7 +47,12 @@ volver {
 }
 
 cabeceras {
-    font: 13px verdana black;
+    font: 19px verdana black;
     border-top: 2px solid grey;
     border-bottom: 2px solid grey;
+}
+
+valor {
+    font: 13px verdana black;
+    color: red;
 }
