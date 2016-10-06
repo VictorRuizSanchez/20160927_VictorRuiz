@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <title>Formulario Completo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../CSS/estiloform.css" />
+    </head>
+    <body>
+    <form method="post" action="../FormularioConfirmacion" >
+    <fieldset>
+    <legend>Datos personales</legend>
+    <label for="nombre">* Nombre: </label>
+    <input type="text" name="nombre" id="nombre">
+    <br/> <br/>
+    <label for="apellidos">Apellidos: </label>
+    <input type="text" name="apellidos" id="apellidos">
+    <br/> <br/>
+    
+    Sexo: 
+    <input type="radio" name="genero" value="hombre" checked>Hombre
+    <input type="radio" name="genero" value="mujer">Mujer
+    <br/> <br/>
+    
+    <label for="edad">Edad:</label>
+    <input type="text" name="Edad" id="edad"  placeholder="22">
+
+    </fieldset>
+        <br/>
+    <fieldset>
+    <legend>Datos de acceso</legend>
+    <label for="usuario">* Usuario: </label>
+    <input type="text" name="usuario" id="usuario">
+    <br/> <br/>
+    <label for="pass" >* Password:</label>
+    <input type="password" id="pass" name="pass" value="">   
+    </fieldset>
+        <br/>
+    <fieldset>
+        <legend>Informacion General</legend>
+        <p>Preferencias</p>
+         <input type="checkbox" name="check" value="Deporte"> Deporte<br>
+         <input type="checkbox" name="check" value="Lectura"> Lectura <br>
+         <input type="checkbox" name="check" value="Cine"> Cine <br>
+         <input type="checkbox" name="check" value="Viajes"> Viajes <br>
+    </fieldset>
+    <input type="submit" value="Enviar" id="enviar" class="boton"/>
+    <input type="reset" value=Limpiar class="boton">
+    </form>
+    </body>
+</html>

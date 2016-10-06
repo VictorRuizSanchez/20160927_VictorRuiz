@@ -17,52 +17,34 @@ and open the template in the editor.
     <fieldset>
     <legend>Datos personales</legend>
     <label for="nombre">Nombre:&nbsp;&nbsp; </label>
-    <input type="text" name="nombre" id="nombre">
+    <input type="text" name="Nombre" id="nombre">
     <br/> <br/>
     <label for="pass">Password: </label>
-    <input type="password" name="pass" id="pass">
+    <input type="password" name="Password" id="pass">
     <br/> <br/>
     Edad: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <select name="edad">
-       <option value="18">18</option> 
-       <option value="19">19</option> 
-       <option value="20">20</option>
-       <option value="21">21</option> 
-       <option value="22">22</option> 
-       <option value="23">23</option> 
-       <option value="24">24</option> 
-       <option value="25">25</option> 
-       <option value="26">26</option>
-       <option value="27">27</option> 
-       <option value="28"  selected>28</option> 
-       <option value="29">29</option> 
-       <option value="30">30</option> 
-       <option value="31">31</option> 
-       <option value="32">32</option>
-       <option value="33">33</option> 
-       <option value="34">34</option> 
-       <option value="35">35</option> 
-    </select>
+    <label for="edad"></label>
+    <input type="text" name="Edad" id="edad"  placeholder="22">
     </fieldset>
         <br/>
     <fieldset>
     <legend>Otros Datos</legend>
     Estado Civil &nbsp;&nbsp;
-	<input type="radio" checked name="Estado Civil" value="1"/>Soltero
-	<input type="radio" name="Estado Civil"  value="2"/>Casado
-	<input type="radio" name="Estado Civil"  value="3"/>Divorciado
-	<input type="radio" name="Estado Civil"  value="4"/>Viudo
+	<input type="radio" checked name="Estado Civil" value="Soltero"/>Soltero
+	<input type="radio" name="Estado Civil"  value="Casado"/>Casado
+	<input type="radio" name="Estado Civil"  value="Divorciado"/>Divorciado
+	<input type="radio" name="Estado Civil"  value="Viudo"/>Viudo
         <p>Aficiones (Use Ctrl para mas de una opcion)<p>
-    <select name="aficciones" size="6" multiple>
-        <option value="1" selected>Deporte</option>
-        <option value="2">Musica</option>
-        <option value="3">Informatica</option>
-        <option value="4">Viajes</option>
-        <option value="5">Tienda</option>
-        <option value="6">Juegos</option>
+    <select name="Aficciones" size="6" multiple>
+        <option value="Deporte" selected>Deporte</option>
+        <option value="Musica">Musica</option>
+        <option value="Informatica">Informatica</option>
+        <option value="Viajes">Viajes</option>
+        <option value="Tienda">Tienda</option>
+        <option value="Juegos">Juegos</option>
     </select>
         <p>Comentarios</p>
-        <textarea rows="2" cols="50" name="coment">
+        <textarea rows="2" cols="50" name="Comentario">
 Deje aqui su comentario...
         </textarea>
     </fieldset>
@@ -70,14 +52,14 @@ Deje aqui su comentario...
     <fieldset>
         <legend>Medios Tecnologicos</legend>
         Dispones de Internet? &nbsp;&nbsp;
-	<input type="radio" checked name="inet" value="1"/>Si
-	<input type="radio" name="inet" value="2"/>No
+	<input type="radio" checked name="Acceso a Internet" value="Si"/>Si
+	<input type="radio" name="Acceso a Internet" value="No"/>No
         <p>Sistema Operativo</p>
-        <select name="sys" size="4">
-        <option value="1" selected>Windows</option>
-        <option value="2">Linux</option>
-        <option value="3">Macintosh</option>
-        <option value="4">Solaris</option>
+        <select name="Sistema Operativo" size="4">
+        <option value="Windows" selected>Windows</option>
+        <option value="Linux">Linux</option>
+        <option value="Macintosh">Macintosh</option>
+        <option value="Solaris">Solaris</option>
         </select>
     </fieldset>
     <input type="submit" value="Enviar" id="enviar" class="boton"/>

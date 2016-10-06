@@ -82,6 +82,7 @@ public class FormularioCompleto extends HttpServlet {
         
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -90,101 +91,26 @@ public class FormularioCompleto extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Formulario Completo</h1>");
-            out.println("<p>"+"Nombre: "+request.getParameter("nombre")+"</p>");
-            out.println("<p>"+"Password: "+request.getParameter("pass")+"</p>");
-            out.println("<p>"+"Edad: "+request.getParameter("edad")+"</p>");
-            String ecivi=request.getParameter("Estado Civil");
-            String soltero="1";
-            String casado="2";
-            String divorciado="3";
-            String viudo="4";
-            if(ecivi.equals(soltero))
-            {
-                out.println("<p>Estado Civil: Soltero</p>" );
-            }
-            if(ecivi.equals(casado))
-            {
-                out.println("<p>Estado Civil: Casado</p>" );
-            }
-            if(ecivi.equals(divorciado))
-            {
-                out.println("<p>Estado Civil: Divorciado</p>" );
-            }
-            if(ecivi.equals(viudo))
-            {
-                out.println("<p>Estado Civil: Viudo</p>" );
-            }
-            
-            out.println("<p>Aficciones</p>");
-            String deporte="1";
-            String musica="2";
-            String informatica="3";
-            String viajes="4";
-            String tiendas="5";
-            String juegos="6";
-            String[] afic = request.getParameterValues("aficciones");
-            for(String af: afic)
-            {
-                out.println("<ul>");
-                if(af.equals(deporte))
-                {
-                    out.println("<li>Deporte</li>" + "");
+            java.util.Enumeration<String> pruebaParametros = request.getParameterNames();
+            while (pruebaParametros.hasMoreElements()){
+                String nombre = (String) pruebaParametros.nextElement();
+                if(!nombre.startsWith("env")){
+                    if(!nombre.startsWith("Afi")){
+                        String valor = (String) request.getParameter(nombre);
+                        out.println("<p>"+nombre+": "+valor+"</p>");
+                    }
+                    else
+                    {
+                        out.println(nombre + ":");
+                        out.println("<ul>");
+                        String[] valor = request.getParameterValues(nombre);
+                        for (int i=0; i<valor.length; i++){
+                            out.println("<li>"+valor[i]+"</li>");
+                        }
+                        out.println("</ul>");
+                    }
                 }
-                if(af.equals(musica))
-                {
-                    out.println("<li>Musica</li>" + "");
-                }
-                if(af.equals(informatica))
-                {
-                    out.println("<li>Informatica</li>" + "");
-                }
-                if(af.equals(viajes))
-                {
-                    out.println("<li>Viajes</li>" + "");
-                }
-                if(af.equals(tiendas))
-                {
-                    out.println("<li>Tiendas</li>" + "");
-                }
-                if(af.equals(juegos))
-                {
-                    out.println("<li>Juegos</li>" + "");
-                }
-                out.println("</ul>");
-            }
-            
-            out.println("<p>"+"Comentarios: "+request.getParameter("coment")+"</p>");
-            String inet=request.getParameter("inet");
-            String si="1";
-            String no="2";
-            if(inet.equals(si))
-            {
-                out.println("<p>Acceso a Internet: Si</p>" );
-            }
-            if(inet.equals(no))
-            {
-                out.println("<p>Acceso a Internet: No</p>" );
-            }
-            String so=request.getParameter("sys");
-            String windows="1";
-            String linux="2";
-            String mac="3";
-            String solaris="4";
-            if(ecivi.equals(windows))
-            {
-                out.println("<p>Sistema Operativo: Windows</p>" );
-            }
-            if(ecivi.equals(linux))
-            {
-                out.println("<p>Sistema Operativo: Linux</p>" );
-            }
-            if(ecivi.equals(mac))
-            {
-                out.println("<p>Sistema Operativo: Macintosh</p>" );
-            }
-            if(ecivi.equals(solaris))
-            {
-                out.println("<p>Sistema Operativo: Solaris</p>" );
+                
             }
             out.println("</body>");
             out.println("<br/>");
