@@ -38,8 +38,9 @@ public class FormularioConfirmacion extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet FormularioConfirmacion</title>"); 
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"../CSS/estiloform.css\" />");
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/estiloform.css\" />");
             out.println("</head>");
+            out.println("<body>");
             boolean NombreError;
             boolean UsuarioError;
             boolean PassError;
@@ -69,9 +70,8 @@ public class FormularioConfirmacion extends HttpServlet {
             }
             if( NombreError || UsuarioError || PassError)
             {
-            out.println("<body>");
-            out.println("<form>");
-            out.println("<fieldset>");
+            out.println("<form method='post' action='FormularioConfirmacion'>");
+            out.println("<fieldset id=\"errores\">");
             if(NombreError)
             {
                 out.println("<p>Hay errores en el nombre");
@@ -86,10 +86,11 @@ public class FormularioConfirmacion extends HttpServlet {
             }
             
             out.println("</fieldset>");
+            out.println("<br>");
             out.println("<fieldset>");
             out.println("<legend>Datos personales</legend>");
             out.println("<label for=\"nombre\">* Nombre: </label>");
-            out.println("<input type=\"text\" name=\"Nombre\" id=\"nombre\" value=\"" + request.getParameter("nombre") + "\">");
+            out.println("<input type=\"text\" name=\"nombre\" id=\"nombre\" value=\"" + request.getParameter("nombre") + "\">");
             out.println("<br/> <br/>");
             out.println("<label for=\"apellidos\">Apellidos: </label>");
             out.println("<input type=\"text\" name=\"apellidos\" id=\"apellidos\" value=\"" + request.getParameter("apellidos") + "\">");
@@ -112,7 +113,7 @@ public class FormularioConfirmacion extends HttpServlet {
             out.println("<fieldset>");
             out.println("<legend>Datos de acceso</legend>");
             out.println("<label for=\"usuario\">* Usuario: </label>");
-            out.println("<input type=\"text\" name=\"Usuario\" id=\"usuario\" value=\"" + request.getParameter("usuario") + "\">");
+            out.println("<input type=\"text\" name=\"usuario\" id=\"usuario\" value=\"" + request.getParameter("usuario") + "\">");
             out.println("<br/> <br/>");
             out.println("<label for=\"pass\" >* Password:</label>");
             out.println("<input type=\"password\" id=\"pass\" name=\"pass\" value=\"" + request.getParameter("pass") + "\" >");   
@@ -125,8 +126,8 @@ public class FormularioConfirmacion extends HttpServlet {
             out.println("<input type=\"checkbox\" name=\"cine\" value=\"Cine\"> Cine <br>");    
             out.println("<input type=\"checkbox\" name=\"viajes\" value=\"Viajes\"> Viajes <br>");     
             out.println("</fieldset>");
-            out.println("<input type=\"submit\" value=\"Enviar\" id=\"enviar\" class=\"boton\"/>");
-            out.println("<a href='formularioConfirm.html'><button>Limpiar</button></a>");
+            out.println("<input type=\"submit\" value=\"Enviar\" id=\"enviar\" class=\"boton\" onclick=\"location.href='FormularioConfirmacion'\"/>");
+            out.println("<input type=\"button\" value=\"Limpiar\" class=\"boton\" onclick=\"location.href='HTML/formularioConfirm.html'\"/>");
             out.println("</form>");
             out.println("</body>");
             }
