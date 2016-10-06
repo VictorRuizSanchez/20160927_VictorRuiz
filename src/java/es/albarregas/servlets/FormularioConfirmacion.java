@@ -121,10 +121,10 @@ public class FormularioConfirmacion extends HttpServlet {
             out.println("<br/>");
             out.println("<fieldset>");
             out.println("<legend>Informacion General</legend>");
-            out.println("<input type=\"checkbox\" name=\"deporte\" value=\"Deporte\"> Deporte<br>");
-            out.println("<input type=\"checkbox\" name=\"lectura\" value=\"Lectura\"> Lectura <br>");
-            out.println("<input type=\"checkbox\" name=\"cine\" value=\"Cine\"> Cine <br>");    
-            out.println("<input type=\"checkbox\" name=\"viajes\" value=\"Viajes\"> Viajes <br>");     
+            out.println("<input type=\"checkbox\" name=\"check\" value=\"Deporte\"> Deporte<br>");
+            out.println("<input type=\"checkbox\" name=\"check\" value=\"Lectura\"> Lectura <br>");
+            out.println("<input type=\"checkbox\" name=\"check\" value=\"Cine\"> Cine <br>");    
+            out.println("<input type=\"checkbox\" name=\"check\" value=\"Viajes\"> Viajes <br>");     
             out.println("</fieldset>");
             out.println("<input type=\"submit\" value=\"Enviar\" id=\"enviar\" class=\"boton\" onclick=\"location.href='FormularioConfirmacion'\"/>");
             out.println("<input type=\"button\" value=\"Limpiar\" class=\"boton\" onclick=\"location.href='HTML/formularioConfirm.html'\"/>");
