@@ -64,6 +64,9 @@ return param1 / param2;
                     }
                 }
             }
+            %>
+            <%=request.getHeader("user-agent") %>
+            <%
             out.println("<br>");
             out.println("<br>");
 
