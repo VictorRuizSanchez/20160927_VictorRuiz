@@ -16,15 +16,11 @@
     </head>
     <body>
         <%
-        HttpSession sesion = request.getSession(true);
-        Libros libro1 = new Libros();
-        ArrayList<Libros> libreria = new ArrayList();
-        libreria = (ArrayList) sesion.getAttribute("libroteca");
         int cantidad;
         String nombre;
         boolean repetido = false;
         
-        // Creamos un arrayList de Libros para ir guardando los libros que iremos seleccionando e iniciamos sus variables.
+        // iniciamos las variables variables.
         if("Enviar".equals(request.getParameter("enviar"))){
         // Si el boton de enviar libros es pulsado añadiremos un libro a nuestro arrayList   
             try {
@@ -44,30 +40,50 @@
             <%
             // Si la cantidad introducida es 0 o menor, nos mostrara un mensaje de error diciendonos que la cantidad debe ser superior a 0
             } else {
+            HttpSession sesion = request.getSession(true);
+            Libros libro1 = new Libros();
+            ArrayList<Libros> libreria = new ArrayList();
+            libreria = (ArrayList) sesion.getAttribute("libroteca");
             libro1.setNombre(nombre);
-            // En caso contrario le daremos nombre.
-            if(libreria == null)
-            // Si nuestro array de libros esta vacio crearemos un nuevo array añadiendo la cantidad y el libro
-            {
-            libreria = new ArrayList();
             libro1.setCantidad(cantidad);
-            libreria.add(libro1);
+            // Creamos un arraylist de Libros donde guardaremos el nombre y cantidad que se reocgio en el formulario.
 
-            }else if(libreria != null){
-            // En cambio si nuestro array no esta vacio, se iran sumando las cantidades y dandoles nombre que ya recogimos.
-            libro1.setCantidad(cantidad);
+            if(libreria == null){
+            // Si el array que hemos creado esta vacio y no hay ningun valor repetido, lo rellenamos.
+            libreria= new ArrayList();
             libreria.add(libro1);
-            }
+            sesion.setAttribute("libroteca", libreria);
             %>
-            <h4>Se han añadido <%=cantidad%> del libro <%=nombre%> al carrito</h4>
-            <%-- Este es el mensaje que nos ira diciendo que vamos añadiendo en nuestro carrito --%>
+            <h4>Se han añadido <%=cantidad%> unidades del libro <%=nombre%></h4>
+            <%-- Mensaje que nos dice la cantidad y numero de libros que hemos añadido --%>
             <%
             }
-            }
+            else
+            {     
+            // Buscamos en el array que si coinciden dos nombres, sume las cantidades
+                for (int i=0; i<libreria.size(); i++){
+                   if (libro1.getNombre().equals(libreria.get(i).getNombre())){
+                       cantidad= libro1.getCantidad()+libreria.get(i).getCantidad();
+                       libreria.get(i).setCantidad(cantidad);
+                       repetido=true;
+                       }
+                       }
+            if (repetido == false){
+            // Si no hay repetidos simplemente se suma el libro
+               libreria.add(libro1);
+               
+               }
+            %>
+            <h4>Se han añadido <%=Integer.parseInt(request.getParameter("cantidad"))%> unidades del libro <%=nombre%></h4>
+            <%-- Mensaje que nos dice la cantidad y numero de libros que hemos añadido --%>
+             <%
             sesion.setAttribute("libroteca", libreria);
+            }
+            }
+            }
             } catch (NumberFormatException ex){
             %>
-            <h3>Debe introducir un numero</h3>
+            <h3>Debe introducir una cantidad</h3>
             <%
             }
         }
@@ -107,6 +123,9 @@
             try {
                 if ("Finalizar Compra".equals(request.getParameter("terminar"))) {
                     // Si el boton de Finalizar Compra se pulsa, se recogeran todos los valores que hemos ido añadiendo.
+                    HttpSession sesion = request.getSession(true);
+                    ArrayList<Libros> libreria = new ArrayList();
+                    Libros libro1 = new Libros();
                     libreria = (ArrayList) sesion.getAttribute("libroteca");
                     Iterator<Libros> it = libreria.iterator();
                     // Con un iterator iremos recorriendo nuestro ArrayList de Libros y mediante una tabla lo presentaremos por pantalla.
